@@ -1,0 +1,58 @@
+{% include 'overall_header.html' %}
+{% INCLUDECSS '@amot_donationbutton/admin_mot_donbutton.css' %}
+
+<h1>{{ lang('SETTINGS') }}</h1>
+<p>{{ lang('ACP_MOT_DONBUTTON_SETTINGS_EXPLAIN') }}</p>
+
+<form id="acp_donbutton_settings" method="post" enctype="application/x-www-form-urlencoded" action="{{ U_ACTION }}">
+	<fieldset>
+		<dl>
+			<dt><label for="mot_donbutton_position">{{ lang('ACP_MOT_DONBUTTON_POSITION') }}{{ lang('COLON') }}</label><p>{{ lang('ACP_MOT_DONBUTTON_POSITION_EXP') }}</p></dt>
+			<dd>
+				<select id="mot_donbutton_position" name="mot_donbutton_position">
+					{% for donbutton_pos in donbutton_pos %}
+						<option value="{{ donbutton_pos.POSITION }}" {% if MOT_DONBUTTON_POSITION == donbutton_pos.POSITION %} selected {% endif %}>{{ donbutton_pos.POSITION_NAME }}</option>
+					{% endfor %}
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="mot_donbutton_align">{{ lang('ACP_MOT_DONBUTTON_ALIGN') }}{{ lang('COLON') }}</label><p>{{ lang('ACP_MOT_DONBUTTON_ALIGN_EXP') }}</p></dt>
+			<dd>
+				<select id="mot_donbutton_align" name="mot_donbutton_align">
+					{% for donbutton_align in donbutton_align %}
+						<option value="{{ donbutton_align.ALIGN }}" {% if MOT_DONBUTTON_ALIGN == donbutton_align.ALIGN %} selected {% endif %}>{{ donbutton_align.ALIGN_NAME }}</option>
+					{% endfor %}
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="mot_donbutton_button_html">{{ lang('ACP_MOT_DONBUTTON_BUTTON_HTML') }}{{ lang('COLON') }}</label><p>{{ lang('ACP_MOT_DONBUTTON_BUTTON_HTML_EXP') }}</p></dt>
+			<dd><textarea id="mot_donbutton_button_html" name="mot_donbutton_button_html" rows="10" cols="250" style="width: 90%;" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();">{{ MOT_DONBUTTON_BUTTON_HTML }}</textarea></dd>
+		</dl>
+		<dl>
+			<dt><label for="mot_donbutton_tiny_text">{{ lang('ACP_MOT_DONBUTTON_TINY_TEXT') }}{{ lang('COLON') }}</label><p>{{ lang('ACP_MOT_DONBUTTON_TINY_TEXT_EXP') }}</p></dt>
+			<dd><input id="mot_donbutton_tiny_text" type="text" size="70" maxlength="50" name="mot_donbutton_tiny_text" value="{{ MOT_DONBUTTON_TINY_TEXT }}" /></dd>
+		</dl>
+	</fieldset>
+	
+	<fieldset>
+        <p class="submit-buttons">
+            <input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+            <input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+        </p>
+
+	{{ S_FORM_TOKEN }}
+	</fieldset>
+	
+	<fieldset>
+		<dl>
+			<dt><label>{{ lang('ACP_MOT_DONBUTTON_SUPPORT') }}</label></dt>
+			<dd><a href="https://paypal.me/MichaelVormwald?locale.x=de_DE" target="_blank" rel="noopener noreferrer">{{ ICON_PAYPAL }}</a></dd>
+		</dl>
+	</fieldset>
+
+	<p id="centered_text">{{ DONATIONBUTTON_VERSION }}</p>
+</form>
+
+{% include 'overall_footer.html' %}

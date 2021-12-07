@@ -1,0 +1,28 @@
+services:
+    amot.donationbutton.includes.constants:
+        class: amot\donationbutton\includes\constants
+        arguments:
+            - '@language'
+
+    amot.donationbutton.controller.acp:
+        class: amot\donationbutton\controller\donbutton_acp
+        arguments:
+            - '@config'
+            - '@config_text'
+            - '@amot.donationbutton.includes.constants'
+            - '@language'
+            - '@ext.manager'
+            - '@request'
+            - '@template'
+            - '%core.root_path%'
+
+    amot.donationbutton.event.listener:
+        class: amot\donationbutton\event\listener
+        arguments:
+            - '@auth'
+            - '@config'
+            - '@config_text'
+            - '@amot.donationbutton.includes.constants'
+            - '@template'
+        tags:
+            - { name: event.listener }

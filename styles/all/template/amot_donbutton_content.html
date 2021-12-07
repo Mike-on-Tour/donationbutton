@@ -1,0 +1,19 @@
+<div class="navbar" {% if !MOT_DONBUTTON_ABOVE_FOOTER %}style="margin-top:5px;"{% endif %}>
+	{% if MOT_DONBUTTON_LEFT %}<div style="margin: 5px auto; float: left;">{% endif %}
+	{% if MOT_DONBUTTON_CENTER %}<div style="margin: 5px auto; display: flex; justify-content: center;">{% endif %}
+	{% if MOT_DONBUTTON_RIGHT %}<div style="margin: 5px auto; float: right;">{% endif %}
+		<table><tr>
+			{% if MOT_DONBUTTON_TINY_TEXT != ''  &&  S_CONTENT_DIRECTION == 'ltr' %}<td style="vertical-align: middle;">{{MOT_DONBUTTON_TINY_TEXT }}&nbsp;</td>{% endif %}
+			<td class="mot-donbutton-button">{# content written with jQuery #}</td></tr>
+			{% if MOT_DONBUTTON_TINY_TEXT != ''  &&  S_CONTENT_DIRECTION == 'rtl' %}<td style="vertical-align: middle;">&nbsp;{{MOT_DONBUTTON_TINY_TEXT }}</td>{% endif %}
+		</table>
+	</div>
+	{% if MOT_DONBUTTON_LEFT || MOT_DONBUTTON_RIGHT %}<div style="clear:both;"></div>{% endif %}
+
+	<script>
+	// <![CDATA[
+		var motDonButton = {};
+		motDonButton.buttonHtml = '{{ MOT_DONBUTTON_BUTTON_HTML|e('js') }}';
+	// ]]>
+	</script>
+</div>

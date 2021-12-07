@@ -1,0 +1,4 @@
+{% if not AMOT_DONBUTTONJS %}
+	{% INCLUDEJS '@amot_donationbutton/amot_donbutton.js' %}
+	{% DEFINE AMOT_DONBUTTONJS = true %}
+{% endif %}

@@ -1,0 +1,29 @@
+{
+	"name": "amot/donationbutton",
+	"type": "phpbb-extension",
+	"description": "Add a donation button (e.g. PayPal) to your board at a selectable position",
+	"homepage": "https://www.mike-on-tour.com/mot/mot_donationbutton.php",
+	"version": "0.2.0",
+	"time": "2021-12-08 12:11:57",
+	"license": "GPL-2.0-only",
+	"authors": [{
+		"name": "Michael Vormwald",
+		"email": "webmaster@mike-on-tour.de",
+		"homepage": "https://www.mike-on-tour.com",
+		"role": "Lead Developer"
+	}],
+	"require": {
+		"php": ">=7.2"
+	},
+	"extra": {
+		"display-name": "Add a donation button",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.2"
+		},
+		"version-check": {
+			"host": "www.mike-on-tour.com",
+			"directory": "/mot",
+			"filename": "mot_donationbutton.json"
+		}
+	}
+}
