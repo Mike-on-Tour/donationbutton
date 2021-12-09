@@ -4,7 +4,7 @@
 	"description": "Add a donation button (e.g. PayPal) to your board at a selectable position",
 	"homepage": "https://www.mike-on-tour.com/mot/mot_donationbutton.php",
 	"version": "0.2.0",
-	"time": "2021-12-08 12:11:57",
+	"time": "2021-12-09 12:11:57",
 	"license": "GPL-2.0-only",
 	"authors": [{
 		"name": "Michael Vormwald",

@@ -67,6 +67,5 @@ $lang = array_merge($lang, [
 												before the Donation Button.',
 	// Support and version
 	'ACP_MOT_DONBUTTON_SUPPORT'				=> 'If you want to donate to Donation Button´s development please use this link:<br>',
-	'ACP_MOT_DONBUTTON_SUPPORT_IMAGE'		=> '<img src="%1$sext/amot/donationbutton/adm/images/Paypal.svg" />',
 	'ACP_MOT_DONATIONBUTTON_VERSION'		=> '<img src="https://img.shields.io/badge/Version-%1$s-green.svg?style=plastic" /><br>&copy; 2021 - %2$d by Mike-on-Tour',
 ]);
