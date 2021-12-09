@@ -46,7 +46,7 @@ class listener implements EventSubscriberInterface
 		];
 	}
 
-	public function define_template_variables($event)
+	public function define_template_variables()
 	{
 		$position = $this->config['mot_donbutton_position'];
 		$alignment = $this->config['mot_donbutton_align'];

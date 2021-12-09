@@ -1,12 +1,19 @@
 <div class="navbar" {% if !MOT_DONBUTTON_ABOVE_FOOTER %}style="margin-top:5px;"{% endif %}>
-	{% if MOT_DONBUTTON_LEFT %}<div style="margin: 5px auto; float: left;">{% endif %}
-	{% if MOT_DONBUTTON_CENTER %}<div style="margin: 5px auto; display: flex; justify-content: center;">{% endif %}
-	{% if MOT_DONBUTTON_RIGHT %}<div style="margin: 5px auto; float: right;">{% endif %}
-		<table><tr>
-			{% if MOT_DONBUTTON_TINY_TEXT != ''  &&  S_CONTENT_DIRECTION == 'ltr' %}<td style="vertical-align: middle;">{{MOT_DONBUTTON_TINY_TEXT }}&nbsp;</td>{% endif %}
-			<td class="mot-donbutton-button">{# content written with jQuery #}</td></tr>
-			{% if MOT_DONBUTTON_TINY_TEXT != ''  &&  S_CONTENT_DIRECTION == 'rtl' %}<td style="vertical-align: middle;">&nbsp;{{MOT_DONBUTTON_TINY_TEXT }}</td>{% endif %}
-		</table>
+	<div style="margin: 5px auto; display: flex; align-items: center; 
+	{% if MOT_DONBUTTON_LEFT %}float: left;">{% endif %}
+	{% if MOT_DONBUTTON_CENTER %}justify-content: center;">{% endif %}
+	{% if MOT_DONBUTTON_RIGHT %}float: right;">{% endif %}
+	
+		{% if S_CONTENT_DIRECTION == 'ltr' %}
+			{% if MOT_DONBUTTON_TINY_TEXT != '' %}<div style="float: left;">{{ MOT_DONBUTTON_TINY_TEXT }}&nbsp;</div>{% endif %}
+			<div class="mot-donbutton-button" style="float: right;"></div>{# content written with jQuery #}
+		{% endif %}
+		
+		{% if S_CONTENT_DIRECTION == 'rtl' %}
+			<div class="mot-donbutton-button" style="float: left;"></div>{# content written with jQuery #}
+			{% if MOT_DONBUTTON_TINY_TEXT != '' %}<div style="float: right;">{{ MOT_DONBUTTON_TINY_TEXT }}&nbsp;</div>{% endif %}
+		{% endif %}
+		
 	</div>
 	{% if MOT_DONBUTTON_LEFT || MOT_DONBUTTON_RIGHT %}<div style="clear:both;"></div>{% endif %}
 

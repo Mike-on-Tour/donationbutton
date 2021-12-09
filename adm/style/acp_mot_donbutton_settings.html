@@ -45,14 +45,21 @@
 	{{ S_FORM_TOKEN }}
 	</fieldset>
 	
-	<fieldset>
-		<dl>
-			<dt><label>{{ lang('ACP_MOT_DONBUTTON_SUPPORT') }}</label></dt>
-			<dd><a href="https://paypal.me/MichaelVormwald?locale.x=de_DE" target="_blank" rel="noopener noreferrer">{{ ICON_PAYPAL }}</a></dd>
-		</dl>
-	</fieldset>
-
-	<p id="centered_text">{{ DONATIONBUTTON_VERSION }}</p>
 </form>
+
+<fieldset>
+	<dl>
+		<dt><label>{{ lang('ACP_MOT_DONBUTTON_SUPPORT') }}</label></dt>
+		<dd>
+			<form action="https://www.paypal.com/donate" method="post" target="_top">
+			<input type="hidden" name="hosted_button_id" value="JQQ5R6VM2XHW4" />
+			<input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+			<img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+			</form>
+		</dd>
+	</dl>
+</fieldset>
+
+<p id="centered_text">{{ DONATIONBUTTON_VERSION }}</p>
 
 {% include 'overall_footer.html' %}

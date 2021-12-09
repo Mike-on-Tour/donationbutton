@@ -84,7 +84,6 @@ class donbutton_acp
 			'MOT_DONBUTTON_BUTTON_HTML'		=> $this->config_text->get('mot_donbutton_button_html'),
 			'MOT_DONBUTTON_TINY_TEXT'		=> $this->config['mot_donbutton_tiny_text'],
 			'DONATIONBUTTON_VERSION'		=> $this->language->lang('ACP_MOT_DONATIONBUTTON_VERSION', $this->donationbutton_version, date('Y')),
-			'ICON_PAYPAL'					=> $this->language->lang('ACP_MOT_DONBUTTON_SUPPORT_IMAGE', $this->root_path),
 		]);
 	}
 
