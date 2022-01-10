@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* @package Donation Button v0.2.0
+* @package Donation Button v0.2.1
 * @copyright (c) 2021 - 2022 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
@@ -73,8 +73,6 @@ class listener implements EventSubscriberInterface
 	*/
 	public function load_permissions($event)
 	{
-		$permissions = $event['permissions'];
-		$permissions['u_view_donbutton'] = array('lang' => 'ACL_U_VIEW_DONBUTTON', 'cat' => 'misc');
-		$event['permissions'] = $permissions;
+		$event->update_subarray('permissions', 'u_view_donbutton', ['lang' => 'ACL_U_VIEW_DONBUTTON', 'cat' => 'misc']);
 	}
 }

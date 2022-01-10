@@ -3,7 +3,22 @@ All changes to `Donation Button` will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
+  
+## [0.2.1] - 2022-01-09
 
+### Added
+
+### Changed
+-	Load permissions routine in `event/listener.php`
+
+### Fixed
+-	Error message due to undefined variable `motDonButton` if extension is activated but no button is displayed by shifting the definition from
+	`styles/all/template/amot_donbutton_content.html` to `styles/all/template/event/overall_header_head_append.html`
+
+### Removed
+
+  
+  
 ## [0.2.0] - 2021-12-09
 
 ### Added

@@ -19,8 +19,8 @@
 
 	<script>
 	// <![CDATA[
-		var motDonButton = {};
-		motDonButton.buttonHtml = '{{ MOT_DONBUTTON_BUTTON_HTML|e('js') }}';
+		// var motDonButton is defined in 'styles/all/template/event/overall_header_head_append.html' to prevent errors due to an undefined variable if button is not displayed but active
+		motDonButton.buttonHtml = "{{ MOT_DONBUTTON_BUTTON_HTML|e('js') }}";
 	// ]]>
 	</script>
 </div>

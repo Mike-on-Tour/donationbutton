@@ -1,4 +1,9 @@
 {% if not AMOT_DONBUTTONJS %}
+	<script>
+	// <![CDATA[
+		var motDonButton = {};
+	// ]]>
+	</script>
 	{% INCLUDEJS '@amot_donationbutton/amot_donbutton.js' %}
 	{% DEFINE AMOT_DONBUTTONJS = true %}
 {% endif %}
