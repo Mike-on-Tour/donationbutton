@@ -1,7 +1,7 @@
 <div class="custombg">
 	<div class="customborder">
-		<div class="navbar" {% if !MOT_DONBUTTON_ABOVE_FOOTER %}style="margin-top:5px;"{% endif %}>
-			<div style="margin: 5px auto; display: flex; align-items: center; 
+		<div class="nav-main" style="background-color: #f1f3f9;">
+			<div class="inner" style="display: flex; align-items: center; padding: 5px;
 			{% if MOT_DONBUTTON_LEFT %}float: left;">{% endif %}
 			{% if MOT_DONBUTTON_CENTER %}justify-content: center;">{% endif %}
 			{% if MOT_DONBUTTON_RIGHT %}float: right;">{% endif %}
@@ -20,10 +20,8 @@
 			{% if MOT_DONBUTTON_LEFT || MOT_DONBUTTON_RIGHT %}<div style="clear:both;"></div>{% endif %}
 
 			<script>
-			// <![CDATA[
 				// var motDonButton is defined in 'styles/all/template/event/overall_header_head_append.html' to prevent errors due to an undefined variable if button is not displayed but active
 				motDonButton.buttonHtml = "{{ MOT_DONBUTTON_BUTTON_HTML|e('js') }}";
-			// ]]>
 			</script>
 		</div>
 	</div>

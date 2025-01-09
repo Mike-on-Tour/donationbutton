@@ -18,7 +18,7 @@ class donbutton_v_0_2_0 extends \phpbb\db\migration\migration
 	*/
 	public function effectively_installed()
 	{
-		return isset($this->config['mot_donbutton_inactive_days']);
+		return isset($this->config['mot_donbutton_position']);
 	}
 
 	public function update_data()

@@ -9,42 +9,34 @@
 		<dl>
 			<dt><label for="mot_donbutton_position">{{ lang('ACP_MOT_DONBUTTON_POSITION') }}{{ lang('COLON') }}</label><p>{{ lang('ACP_MOT_DONBUTTON_POSITION_EXP') }}</p></dt>
 			<dd>
-				<select id="mot_donbutton_position" name="mot_donbutton_position">
-					{% for donbutton_pos in donbutton_pos %}
-						<option value="{{ donbutton_pos.POSITION }}" {% if MOT_DONBUTTON_POSITION == donbutton_pos.POSITION %} selected {% endif %}>{{ donbutton_pos.POSITION_NAME }}</option>
-					{% endfor %}
-				</select>
+				{{ _self.select('mot_donbutton_position', ACP_MOT_DONBUTTON_POS_ARR) }}
 			</dd>
 		</dl>
 		<dl>
 			<dt><label for="mot_donbutton_align">{{ lang('ACP_MOT_DONBUTTON_ALIGN') }}{{ lang('COLON') }}</label><p>{{ lang('ACP_MOT_DONBUTTON_ALIGN_EXP') }}</p></dt>
 			<dd>
-				<select id="mot_donbutton_align" name="mot_donbutton_align">
-					{% for donbutton_align in donbutton_align %}
-						<option value="{{ donbutton_align.ALIGN }}" {% if MOT_DONBUTTON_ALIGN == donbutton_align.ALIGN %} selected {% endif %}>{{ donbutton_align.ALIGN_NAME }}</option>
-					{% endfor %}
-				</select>
+				{{ _self.select('mot_donbutton_align', ACP_MOT_DONBUTTON_ALIGN_ARR) }}
 			</dd>
 		</dl>
 		<dl>
 			<dt><label for="mot_donbutton_button_html">{{ lang('ACP_MOT_DONBUTTON_BUTTON_HTML') }}{{ lang('COLON') }}</label><p>{{ lang('ACP_MOT_DONBUTTON_BUTTON_HTML_EXP') }}</p></dt>
-			<dd><textarea id="mot_donbutton_button_html" name="mot_donbutton_button_html" rows="10" cols="250" style="width: 90%;" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();">{{ MOT_DONBUTTON_BUTTON_HTML }}</textarea></dd>
+			<dd><textarea id="mot_donbutton_button_html" name="mot_donbutton_button_html" rows="10" cols="250" style="width: 90%;" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onfocus="initInsertions();">{{ ACP_MOT_DONBUTTON_BUTTON_HTML }}</textarea></dd>
 		</dl>
 		<dl>
 			<dt><label for="mot_donbutton_tiny_text">{{ lang('ACP_MOT_DONBUTTON_TINY_TEXT') }}{{ lang('COLON') }}</label><p>{{ lang('ACP_MOT_DONBUTTON_TINY_TEXT_EXP') }}</p></dt>
-			<dd><input id="mot_donbutton_tiny_text" type="text" size="70" maxlength="50" name="mot_donbutton_tiny_text" value="{{ MOT_DONBUTTON_TINY_TEXT }}" /></dd>
+			<dd><input id="mot_donbutton_tiny_text" type="text" size="70" maxlength="50" name="mot_donbutton_tiny_text" value="{{ ACP_MOT_DONBUTTON_TINY_TEXT }}"></dd>
 		</dl>
 	</fieldset>
-	
+
 	<fieldset>
         <p class="submit-buttons">
-            <input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
-            <input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+            <input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}">&nbsp;
+            <input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}">
         </p>
 
 	{{ S_FORM_TOKEN }}
 	</fieldset>
-	
+
 </form>
 
 <fieldset>
@@ -52,14 +44,28 @@
 		<dt><label>{{ lang('ACP_MOT_DONBUTTON_SUPPORT') }}</label></dt>
 		<dd>
 			<form action="https://www.paypal.com/donate" method="post" target="_top">
-			<input type="hidden" name="hosted_button_id" value="JQQ5R6VM2XHW4" />
-			<input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-			<img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+			<input type="hidden" name="hosted_button_id" value="JQQ5R6VM2XHW4">
+			<input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
+			<img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1">
 			</form>
 		</dd>
 	</dl>
 </fieldset>
 
-<p id="centered_text">{{ DONATIONBUTTON_VERSION }}</p>
+<p id="centered_text">{{ ACP_MOT_DONATIONBUTTON_VERSION }}</p>
 
 {% include 'overall_footer.html' %}
+
+{% macro select(name, options, multiple = null, size = null) -%}
+	<select id="{{ name }}" name="{{ name }}{{ multiple ? '[]' }}"{{
+		(size !== null ? ' size="' ~ size ~ '"') ~
+		(multiple ? ' multiple')
+	}}>
+		{% for opt in options %}
+			<option value="{{ opt.value }}"{{
+				(opt.bold ? ' class="sep"') ~
+				(opt.selected ? ' selected')
+			}}>{{ lang(opt.label) }}</option>
+		{% endfor %}
+	</select>
+{%- endmacro %}

@@ -1,8 +1,8 @@
 <?php
 /**
 *
-* @package Donation Button v0.2.0
-* @copyright (c) 2021 - 2022 Mike-on-Tour
+* @package Donation Button v1.0.0
+* @copyright (c) 2021 - 2025 Mike-on-Tour
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
@@ -22,22 +22,19 @@ class constants
 	const MOT_DONBUTTON_CENTER = 2;
 	const MOT_DONBUTTON_RIGHT = 4;
 
-	/** @var \phpbb\language\language $language Language object */
-	protected $language;
-
-	public function __construct(\phpbb\language\language $language)
+	public function __construct()
 	{
-		$this->pos_array = [
-			['POSITION' => self::MOT_DONBUTTON_NOPOS, 'POSITION_NAME' => $language->lang('ACP_MOT_DONBUTTON_NOPOS')],
-			['POSITION' => self::MOT_DONBUTTON_UNDER_HEADER, 'POSITION_NAME' => $language->lang('ACP_MOT_DONBUTTON_UNDER_HEADER')],
-			['POSITION' => self::MOT_DONBUTTON_UNDER_LISTS, 'POSITION_NAME' => $language->lang('ACP_MOT_DONBUTTON_UNDER_LISTS')],
-			['POSITION' => self::MOT_DONBUTTON_ABOVE_FOOTER, 'POSITION_NAME' => $language->lang('ACP_MOT_DONBUTTON_ABOVE_FOOTER')],
+		$this->pos_arr = [
+			'ACP_MOT_DONBUTTON_NOPOS'			=> self::MOT_DONBUTTON_NOPOS,
+			'ACP_MOT_DONBUTTON_UNDER_HEADER'	=> self::MOT_DONBUTTON_UNDER_HEADER,
+			'ACP_MOT_DONBUTTON_UNDER_LISTS'		=> self::MOT_DONBUTTON_UNDER_LISTS,
+			'ACP_MOT_DONBUTTON_ABOVE_FOOTER'	=> self::MOT_DONBUTTON_ABOVE_FOOTER,
 		];
 
 		$this->align_arr = [
-			['ALIGN' => self::MOT_DONBUTTON_LEFT, 'ALIGN_NAME' => $language->lang('ACP_MOT_DONBUTTON_LEFT')],
-			['ALIGN' => self::MOT_DONBUTTON_CENTER, 'ALIGN_NAME' => $language->lang('ACP_MOT_DONBUTTON_CENTER')],
-			['ALIGN' => self::MOT_DONBUTTON_RIGHT, 'ALIGN_NAME' => $language->lang('ACP_MOT_DONBUTTON_RIGHT')],
+			'ACP_MOT_DONBUTTON_LEFT'	=> self::MOT_DONBUTTON_LEFT,
+			'ACP_MOT_DONBUTTON_CENTER'	=> self::MOT_DONBUTTON_CENTER,
+			'ACP_MOT_DONBUTTON_RIGHT'	=> self::MOT_DONBUTTON_RIGHT,
 		];
 	}
 }

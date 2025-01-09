@@ -4,6 +4,22 @@ All changes to `Donation Button` will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
   
+## [1.0.0] - 2025-01-10
+
+### Added
+
+### Changed
+-	Maximum PHP version to 8.4.x
+-	Added a TWIG macro for select fields and a control structure for it to `adm/style/acp_mot_donbutton_settings.html` and `controller/donbutton_acp.php`
+	(many thanks to LukeWCS for the macro and the PHP controller function)
+-	Code improvements in `includes/constants.php` and in `controller/donbutton_acp.php`
+
+### Fixed
+
+### Removed
+-	Old XHTML remnants
+  
+  
 ## [0.2.2] - 2022-10-04
 
 ### Added
@@ -11,9 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-
 ### Fixed
-
 
 ### Removed
 -	Content from style `all`
