@@ -1,8 +1,6 @@
 services:
     amot.donationbutton.includes.constants:
         class: amot\donationbutton\includes\constants
-        arguments:
-            - '@language'
 
     amot.donationbutton.controller.acp:
         class: amot\donationbutton\controller\donbutton_acp
@@ -14,7 +12,6 @@ services:
             - '@ext.manager'
             - '@request'
             - '@template'
-            - '%core.root_path%'
 
     amot.donationbutton.event.listener:
         class: amot\donationbutton\event\listener

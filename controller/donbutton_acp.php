@@ -32,12 +32,9 @@ class donbutton_acp
 	/** @var \phpbb\template\template */
 	protected $template;
 
-	/** @var string phpBB phpbb root path */
-	protected $root_path;
-
 	public function __construct(\phpbb\config\config $config, \phpbb\config\db_text $config_text, \amot\donationbutton\includes\constants $constants,
 								\phpbb\language\language $language, \phpbb\extension\manager $phpbb_extension_manager,
-								\phpbb\request\request_interface $request, \phpbb\template\template $template, $root_path)
+								\phpbb\request\request_interface $request, \phpbb\template\template $template)
 	{
 		$this->config = $config;
 		$this->config_text = $config_text;
@@ -46,7 +43,6 @@ class donbutton_acp
 		$this->phpbb_extension_manager = $phpbb_extension_manager;
 		$this->request = $request;
 		$this->template = $template;
-		$this->root_path = $root_path;
 
 		$this->md_manager = $this->phpbb_extension_manager->create_extension_metadata_manager('amot/donationbutton');
 		$this->donationbutton_version = $this->md_manager->get_metadata('version');
@@ -75,15 +71,13 @@ class donbutton_acp
 			trigger_error($this->language->lang('ACP_MOT_DONBUTTON_SETTINGS_SAVED') . adm_back_link($this->u_action));
 		}
 
-		$this->template->assign_block_vars_array('donbutton_pos', $this->constants->pos_array);
-		$this->template->assign_block_vars_array('donbutton_align', $this->constants->align_arr);
 		$this->template->assign_vars([
-			'U_ACTION'						=> $this->u_action,
-			'MOT_DONBUTTON_POSITION'		=> $this->config['mot_donbutton_position'],
-			'MOT_DONBUTTON_ALIGN'			=> $this->config['mot_donbutton_align'],
-			'MOT_DONBUTTON_BUTTON_HTML'		=> $this->config_text->get('mot_donbutton_button_html'),
-			'MOT_DONBUTTON_TINY_TEXT'		=> $this->config['mot_donbutton_tiny_text'],
-			'DONATIONBUTTON_VERSION'		=> $this->language->lang('ACP_MOT_DONATIONBUTTON_VERSION', $this->donationbutton_version, date('Y')),
+			'U_ACTION'							=> $this->u_action,
+			'ACP_MOT_DONBUTTON_POS_ARR'			=> $this->select_struct($this->config['mot_donbutton_position'], $this->constants->pos_arr),
+			'ACP_MOT_DONBUTTON_ALIGN_ARR'		=> $this->select_struct($this->config['mot_donbutton_align'], $this->constants->align_arr),
+			'ACP_MOT_DONBUTTON_BUTTON_HTML'		=> $this->config_text->get('mot_donbutton_button_html'),
+			'ACP_MOT_DONBUTTON_TINY_TEXT'		=> $this->config['mot_donbutton_tiny_text'],
+			'ACP_MOT_DONATIONBUTTON_VERSION'	=> $this->language->lang('ACP_MOT_DONATIONBUTTON_VERSION', $this->donationbutton_version, date('Y')),
 		]);
 	}
 
@@ -101,5 +95,26 @@ class donbutton_acp
 		$this->u_action = $u_action;
 
 		return $this;
+	}
+
+	private function select_struct($cfg_value, array $options): array
+	{
+		$options_tpl = [];
+
+		foreach ($options as $opt_key => $opt_value)
+		{
+			if (!is_array($opt_value))
+			{
+				$opt_value = [$opt_value];
+			}
+			$options_tpl[] = [
+				'label'		=> $opt_key,
+				'value'		=> $opt_value[0],
+				'bold'		=> $opt_value[1] ?? false,
+				'selected'	=> is_array($cfg_value) ? in_array($opt_value[0], $cfg_value) : $opt_value[0] == $cfg_value,
+			];
+		}
+
+		return $options_tpl;
 	}
 }

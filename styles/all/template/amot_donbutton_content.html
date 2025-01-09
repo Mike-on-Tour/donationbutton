@@ -1,0 +1,24 @@
+<div class="navbar" {% if !MOT_DONBUTTON_ABOVE_FOOTER %}style="margin-top:5px;"{% endif %}>
+	<div style="margin: 5px auto; display: flex; align-items: center;
+	{% if MOT_DONBUTTON_LEFT %}float: left;">{% endif %}
+	{% if MOT_DONBUTTON_CENTER %}justify-content: center;">{% endif %}
+	{% if MOT_DONBUTTON_RIGHT %}float: right;">{% endif %}
+
+		{% if S_CONTENT_DIRECTION == 'ltr' %}
+			{% if MOT_DONBUTTON_TINY_TEXT != '' %}<div style="float: left;">{{ MOT_DONBUTTON_TINY_TEXT }}&nbsp;</div>{% endif %}
+			<div class="mot-donbutton-button" style="float: right;"></div>{# content written with jQuery #}
+		{% endif %}
+
+		{% if S_CONTENT_DIRECTION == 'rtl' %}
+			<div class="mot-donbutton-button" style="float: left;"></div>{# content written with jQuery #}
+			{% if MOT_DONBUTTON_TINY_TEXT != '' %}<div style="float: right;">{{ MOT_DONBUTTON_TINY_TEXT }}&nbsp;</div>{% endif %}
+		{% endif %}
+
+	</div>
+	{% if MOT_DONBUTTON_LEFT || MOT_DONBUTTON_RIGHT %}<div style="clear:both;"></div>{% endif %}
+
+	<script>
+		// var motDonButton is defined in 'styles/all/template/event/overall_header_head_append.html' to prevent errors due to an undefined variable if button is not displayed but active
+		motDonButton.buttonHtml = "{{ MOT_DONBUTTON_BUTTON_HTML|e('js') }}";
+	</script>
+</div>

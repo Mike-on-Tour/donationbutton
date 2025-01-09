@@ -68,5 +68,5 @@ $lang = array_merge($lang, [
 												Donation Button angezeigt wird.',
 	// Support and version
 	'ACP_MOT_DONBUTTON_SUPPORT'				=> 'Wenn Sie die Entwicklung der Erweiterung ´Donation Button´ unterstützen möchtest, können Sie das hier tun:<br>',
-	'ACP_MOT_DONATIONBUTTON_VERSION'		=> '<img src="https://img.shields.io/badge/Version-%1$s-green.svg?style=plastic" /><br>&copy; 2021 - %2$d by Mike-on-Tour',
+	'ACP_MOT_DONATIONBUTTON_VERSION'		=> '<img src="https://img.shields.io/badge/Version-%1$s-green.svg?style=plastic"><br>&copy; 2021 - %2$d by Mike-on-Tour',
 ]);
